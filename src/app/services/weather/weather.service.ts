@@ -1,14 +1,18 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpResponse } from '@angular/common/http';
+import { Http, Response, Headers } from '@angular/http';
+import { Observable } from 'rxjs';
+// import 'rxjs/add/operator/map';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WeatherService {
-  _baseUrl = "http://api.worldweatheronline.com/premium/v1/weather.ashx?key=9d1f74d88c094993aeb141716182910&";
-  currentLocation: any = {};
+  private _baseUrl = "http://api.worldweatheronline.com/premium/v1/weather.ashx?key=9d1f74d88c094993aeb141716182910&format=json&q=Egypt";
+  private currentLocation: any = {};
 
-  constructor() {
-    this._getLocation(this._setLocation);
+  constructor(private http: HttpClient) {
+    // this._getLocation(this._setLocation);
     // this.getWeatherByLocation();
   }
 
@@ -16,10 +20,10 @@ export class WeatherService {
   _setLocation(position: any) {
     debugger;
     this.currentLocation = position;
-    
+
   }
 
-  _getLocation(callback) {
+  _getLocation(callback): void {
     if (window.navigator.geolocation) {
       // navigator.geolocation.getCurrentPosition(function(position) {
       //   if(callback) {
@@ -30,7 +34,6 @@ export class WeatherService {
       window.navigator.geolocation.getCurrentPosition(
         (position) => {
           /* Location tracking code */
-          debugger;
           this.currentLocation = position.coords;
           // callback(position.coords);
         },
@@ -46,8 +49,12 @@ export class WeatherService {
     }
   }
 
-  getWeatherByLocation() {
+  getWeatherByLocation(): void {
     debugger;
+  }
+
+  getCityWeatherDetails(cityName: string = "Egypt") {
+    return this.http.get(`${this._baseUrl}&num_of_days=5&includelocation=yes&tp=24`);
   }
 
   sayHi() {
