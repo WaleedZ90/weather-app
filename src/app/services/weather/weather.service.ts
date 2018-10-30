@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class WeatherService {
-  private _baseUrl = "http://api.worldweatheronline.com/premium/v1/weather.ashx?key=9d1f74d88c094993aeb141716182910&format=json&q=Egypt";
+  private _baseUrl = "http://api.worldweatheronline.com/premium/v1/weather.ashx?key=9d1f74d88c094993aeb141716182910&format=json";
   private currentLocation: any = {};
 
   constructor(private http: HttpClient) {
@@ -54,7 +54,7 @@ export class WeatherService {
   }
 
   getCityWeatherDetails(cityName: string = "Egypt") {
-    return this.http.get(`${this._baseUrl}&num_of_days=5&includelocation=yes&tp=24`);
+    return this.http.get(`${this._baseUrl}&num_of_days=5&includelocation=yes&tp=24&q=${cityName}`);
   }
 
   sayHi() {

@@ -1,0 +1,16 @@
+.details-container {
+    padding: 150px;
+}
+
+.weather-calendar-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.weather-calendar-item {
+    width: 30%
+}
+
+.barchart-container {
+    margin: 10px 0;
+}

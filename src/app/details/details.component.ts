@@ -5,7 +5,7 @@ import * as moment from 'moment';
 @Component({
     selector: 'app-details',
     templateUrl: './details.component.html',
-    styleUrls: ['./details.component.sass']
+    styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
     public barChartOptions: any = {
@@ -22,6 +22,8 @@ export class DetailsComponent implements OnInit {
         { data: [], label: 'Avg Maximum Temperature' }
     ];
 
+    weatherCalendar: any[];
+
     constructor(private _weatherService: WeatherService) { }
 
     ngOnInit() {
@@ -29,13 +31,15 @@ export class DetailsComponent implements OnInit {
             .subscribe((res: any) => {
                 let weatherData =
                     res.data.weather.map(weather => {
-                        const month = moment(weather.date, 'YYYY-MM-DD').format('MMMM').toString();
+                        const month = moment(weather.date, 'YYYY-MM-DD').format('MMMM DD').toString();
                         return <any>{
                             month,
                             minTemp: weather.mintempC,
                             maxTemp: weather.maxtempC
                         };
                     });
+
+                this.weatherCalendar = weatherData;
 
                 let climateAverages = res.data.ClimateAverages.map(climate => {
                     return climate.month.map(c => {

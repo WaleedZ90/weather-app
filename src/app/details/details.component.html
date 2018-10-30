@@ -1,15 +1,12 @@
-<p>
-  details works!
-</p>
-<div>
-  <div style="display: block">
-    <canvas baseChart
-            [datasets]="barChartData"
-            [labels]="barChartLabels"
-            [options]="barChartOptions"
-            [legend]="barChartLegend"
-            [chartType]="barChartType"
-            >
-      </canvas>
-  </div>
-</div>
+<article class="details-container">
+    <section class="weather-calendar-container">
+        <div class="weather-calendar-item" *ngFor="let weather of weatherCalendar">
+            {{weather.month}}
+        </div>
+    </section>
+    <section class="barchart-container">
+        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+            [chartType]="barChartType">
+        </canvas>
+    </section>
+</article>
