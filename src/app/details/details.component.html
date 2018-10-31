@@ -1,10 +1,22 @@
 <article class="details-container">
     <section class="weather-calendar-container">
-        <div class="weather-calendar-item" *ngFor="let weather of weatherCalendar">
-            {{weather.month}}
-        </div>
+        <h2>Upcoming Forecasts in {{selectedCountry || ""}}</h2>
+        <article class="weather-calendar-items-container">
+            <div class="weather-calendar-item" *ngFor="let weather of weatherCalendar">
+                <strong>{{weather.day}}</strong>
+                <div class="temperature-wrapper">
+                    <h6>Min. {{weather.minTemp}}</h6>
+                    <h6>Max. {{weather.maxTemp}}</h6>
+                </div>
+                <figure>
+                    <img [src]="weather.weatherIconUrl" alt="weather icon">
+                    <figcaption>{{weather.weatherDesc}}</figcaption>
+                </figure>
+            </div>
+        </article>
     </section>
     <section class="barchart-container">
+        <h2>Average Minimum & Maximum For the Whole Year</h2>
         <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
             [chartType]="barChartType">
         </canvas>

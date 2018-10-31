@@ -1,3 +1,29 @@
-<p>
-  landing-page works!
-</p>
+<article class="landing-page-container">
+    <section class="search-container">
+        <input class="form-control" type="text" name="searchQuery" placeholder="Search for a city" [value]="searchQuery"
+            (input)="searchQuery = $event.target.value">
+        <button class="btn btn-success" (click)="searchCountry()">
+            <i class="fas fa-search"></i>
+            <span>Search</span>
+        </button>
+    </section>
+    <section *ngIf="!hasError" class="weather-cards-container">
+        <div class="weather-card" *ngFor="let weather of weatherDetailsArray">
+            <div class="card-front">
+                <span class="temperature-text">{{weather.current_condition.FeelsLikeC}}&#176;</span>
+                <!-- <strong>{{weather.current_condition.weatherDesc}}</strong> -->
+                <figure>
+                    <img [src]="weather.current_condition.weatherIconUrl" alt="weather condition icon">
+                    <figcaption>{{weather.current_condition.weatherDesc}}</figcaption>
+                </figure>
+                <h5>{{weather.country}}, {{weather.areaName}}</h5>
+            </div>
+            <aside class="card-hover-template">
+                <a routerLink='/details/{{weather.country}}' class="btn btn-info" >View Details</a>
+            </aside>
+        </div>
+    </section>
+    <section *ngIf="hasError">
+        <h1>{{errorMessage}}</h1>
+    </section>
+</article>

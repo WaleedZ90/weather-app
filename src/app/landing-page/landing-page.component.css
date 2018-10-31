@@ -1,0 +1,115 @@
+/* Landing Page Container */
+.landing-page-container {
+    /* position: relative;
+    top: 30vh; */
+}
+
+.landing-page-container section {
+    width: 65%;
+    margin: auto;
+}
+
+/* Search container */
+.search-container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 55px;
+    margin-bottom: 15px !important;
+    margin-top: 15px !important;
+}
+
+.search-container input[type="text"] {
+    width: calc(85% - 10px);
+    margin-right: 10px;
+    height: 100%;
+}
+
+.search-container button {
+    width: 15%;
+}
+
+.search-container button i {
+    margin-right: 9px;
+}
+
+.search-container button span {
+    font-weight: 600;
+}
+
+/* Weather Cards Container */
+.weather-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.weather-cards-container .weather-card {
+    width: calc(50% - 6px);
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 3px;
+    position: relative;
+    overflow: hidden;
+}
+
+.weather-cards-container .weather-card .card-front figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-cards-container .weather-card .card-front figure img {
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.weather-cards-container .weather-card .card-front figure figcaption {
+    font-size: 30px;
+}
+
+.weather-cards-container .weather-card .card-front span {
+    font-size: 70px;
+    display: block;
+}
+
+.weather-cards-container .weather-card .card-hover-template {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    background-color: rgba(22, 17, 56, 0.8);
+    transform: translateY(100%);
+    transition: transform .1s ease;
+    top: 0;
+    display: flex;
+}
+
+.weather-card:hover .card-hover-template {
+    transform: translateY(0) !important;
+}
+
+.weather-cards-container .weather-card .card-hover-template a {
+    margin: auto;
+    height: 30%;
+    font-size: 24px;
+    padding-top: 11px;
+}
+
+/* Error message Container */
+
+
+/* Breakpoint 992px */
+@media only screen and (max-width: 992px) {
+    .weather-cards-container .weather-card {
+        width: 100%;
+    }
+
+    .search-container button i {
+        margin-right: unset;
+        font-size: 23px;
+    }
+
+    .search-container button span {
+        display: none;
+    }
+}
