@@ -15,13 +15,19 @@ export class LandingPageComponent implements OnInit {
   constructor(private _weatherService: WeatherService) { }
 
   ngOnInit() {
-    this._weatherService.getCityWeatherDetails("Egypt")
+    // Detecting Location here
+    this._weatherService._getLocation(position => this.detectLocation(position));
+    // Dummy Location
+    this._weatherService.getCityWeatherDetails("London")
       .subscribe((res: any) => {
         let weatherDetails = this.mapWeatherResponse(res);
         this.weatherDetailsArray.push(weatherDetails);
       });
+  }
 
-    this._weatherService.getCityWeatherDetails("London")
+  detectLocation (position) {
+    const latLang = `${position.latitude},${position.longitude}`
+    this._weatherService.getCityWeatherDetails(latLang)
       .subscribe((res: any) => {
         let weatherDetails = this.mapWeatherResponse(res);
         this.weatherDetailsArray.push(weatherDetails);
