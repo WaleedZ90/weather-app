@@ -3,6 +3,23 @@
     margin-top: 15px;
 }
 
+.details-container section h2 {
+    padding-left: 15px;
+    box-shadow: 1px 1px 10px 0px #ced4da;
+    height: 86px;
+    background-color: white;
+    margin-bottom: 0;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+}
+
+.details-container section article {
+    padding: 15px;
+    box-shadow: 1px 3px 10px 0px #ced4da;
+    background-color: #fbfaff;
+}
+
 .weather-calendar-container {
     /* display: flex;
     flex-wrap: wrap; */
@@ -11,16 +28,31 @@
 .weather-calendar-items-container {
     display: flex;
     flex-wrap: wrap;
+    padding: 0 !important;
 }
 
 .weather-calendar-item {
-    width: 30%;
-    border: 1px solid black;
-    border-radius: 10px;
-    margin: 3px;
+    width: 20%;
+    box-shadow: 1px 1px 10px 0px #ced4da;
     padding: 15px;
+}
+
+.line-chart-container {
+    margin: 10px 0;
 }
 
 .barchart-container {
     margin: 10px 0;
+}
+
+@media only screen and (max-width: 992px) {
+    .weather-calendar-item {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 568px) {
+    .weather-calendar-item {
+        width: 100%;
+    }
 }

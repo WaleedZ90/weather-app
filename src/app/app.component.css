@@ -1,0 +1,27 @@
+.main-container {}
+
+.header-container {
+    text-align: center;
+    padding: 15px;
+    margin-top: 10px;
+    box-shadow: 1px 1px 10px 0px #ced4da;
+    height: 86px;
+    background-color: #fbfaff;
+}
+
+.header-container h1 {
+    font-family: fantasy;
+    letter-spacing: 3px;
+}
+
+.body-container {
+    padding: 0;
+}
+
+.footer-container {
+    height: 86px;
+    padding: 15px;
+    margin-top: 15px;
+    box-shadow: 1px 1px 10px 0px #ced4da;
+    background-color: #fbfaff;
+}

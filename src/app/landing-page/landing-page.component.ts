@@ -18,18 +18,18 @@ export class LandingPageComponent implements OnInit {
     // Detecting Location here
     this._weatherService._getLocation(position => this.detectLocation(position));
     // Dummy Location
-    this._weatherService.getCityWeatherDetails("London")
+    this._weatherService.getCityWeatherDetails('London')
       .subscribe((res: any) => {
-        let weatherDetails = this.mapWeatherResponse(res);
+        const weatherDetails = this.mapWeatherResponse(res);
         this.weatherDetailsArray.push(weatherDetails);
       });
   }
 
   detectLocation (position) {
-    const latLang = `${position.latitude},${position.longitude}`
+    const latLang = `${position.latitude},${position.longitude}`;
     this._weatherService.getCityWeatherDetails(latLang)
       .subscribe((res: any) => {
-        let weatherDetails = this.mapWeatherResponse(res);
+        const weatherDetails = this.mapWeatherResponse(res);
         this.weatherDetailsArray.push(weatherDetails);
       });
   }
@@ -44,13 +44,13 @@ export class LandingPageComponent implements OnInit {
         }
 
         this.weatherDetailsArray = [];
-        let weatherDetails = this.mapWeatherResponse(res);
+        const weatherDetails = this.mapWeatherResponse(res);
         this.weatherDetailsArray.push(weatherDetails);
       });
   }
 
   mapWeatherResponse(res: any): any {
-    let weatherDetails = {
+    const weatherDetails = {
       latitude: res.data.nearest_area[0].latitude,
       longitude: res.data.nearest_area[0].latitude,
       country: res.data.nearest_area[0].country[0].value,
@@ -60,9 +60,13 @@ export class LandingPageComponent implements OnInit {
         weatherCode: res.data.current_condition[0].weatherCode,
         weatherIconUrl: res.data.current_condition[0].weatherIconUrl[0].value,
         weatherDesc: res.data.current_condition[0].weatherDesc[0].value,
+        FeelsLikeC: res.data.current_condition[0].FeelsLikeC,
+        windspeedKmph: res.data.current_condition[0].windspeedKmph,
+        winddir16Point: res.data.current_condition[0].winddir16Point,
         humidity: res.data.current_condition[0].humidity,
         visibility: res.data.current_condition[0].visibility,
-        FeelsLikeC: res.data.current_condition[0].FeelsLikeC
+        pressure: res.data.current_condition[0].pressure,
+        cloudcover: res.data.current_condition[0].cloudcover
       }
     };
 
