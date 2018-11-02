@@ -8,12 +8,14 @@ import { DetailsComponent } from './details/details.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { WeatherService } from './services/weather/weather.service';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { LoaderComponent } from './shared/loader/loader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DetailsComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

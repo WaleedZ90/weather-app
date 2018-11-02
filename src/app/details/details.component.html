@@ -1,5 +1,8 @@
 <article class="details-container">
-    <section class="weather-calendar-container">
+    <section class="loading-placeholer" *ngIf="pageIsLoading">
+        <loader></loader>
+    </section>
+    <section *ngIf="!pageIsLoading" class="weather-calendar-container">
         <h2>Upcoming Forecasts in {{selectedCountry || ""}}</h2>
         <article class="weather-calendar-items-container">
             <div class="weather-calendar-item" *ngFor="let weather of weatherCalendar">
@@ -15,7 +18,7 @@
             </div>
         </article>
     </section>
-    <section class="line-chart-container">
+    <section *ngIf="!pageIsLoading" class="line-chart-container">
         <h2>Hourly Forecasts</h2>
         <article>
             <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
@@ -23,7 +26,7 @@
             </canvas>
         </article>
     </section>
-    <section class="barchart-container">
+    <section *ngIf="!pageIsLoading" class="barchart-container">
         <h2>Average Minimum & Maximum For the Whole Year</h2>
         <article>
             <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"

@@ -1,5 +1,4 @@
 .details-container {
-    /* padding: 150px; */
     margin-top: 15px;
 }
 
@@ -20,11 +19,6 @@
     background-color: #fbfaff;
 }
 
-.weather-calendar-container {
-    /* display: flex;
-    flex-wrap: wrap; */
-}
-
 .weather-calendar-items-container {
     display: flex;
     flex-wrap: wrap;
@@ -43,6 +37,11 @@
 
 .barchart-container {
     margin: 10px 0;
+}
+
+.loading-placeholer {
+    height: 500px;
+    width: 100%;
 }
 
 @media only screen and (max-width: 992px) {

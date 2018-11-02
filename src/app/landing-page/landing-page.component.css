@@ -111,6 +111,21 @@
     padding: 20px;
 }
 
+/* .otherdetails-container dl {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.otherdetails-container dl dt {
+    font-size: 28px;
+}
+
+.otherdetails-container dl dd {
+    font-size: 32px;
+    margin-bottom: 0;
+} */
+
 .weather-cards-container .weather-card .card-hover-template {
     position: absolute;
     height: 100%;
@@ -143,6 +158,19 @@
 }
 
 /* Error message Container */
+.error-message-container {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 170px;
+    background-color: #fbfaff;
+}
+
+.loading-placeholer {
+    width: 100%;
+    height: 500px;
+}
 
 
 /* Breakpoint 992px */

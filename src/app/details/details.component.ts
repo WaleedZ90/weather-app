@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
     styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
+    pageIsLoading = false;
     public selectedCountry: string = null;
 
     public barChartOptions: any = {
@@ -69,6 +70,7 @@ export class DetailsComponent implements OnInit {
     ngOnInit() {
         this.route.params.subscribe(params => {
             this.selectedCountry = params['id'];
+            this.pageIsLoading = true;
             this._weatherService.getCityWeatherDetails(params['id'])
                 .subscribe((res: any) => {
                     const weatherData =
@@ -112,6 +114,8 @@ export class DetailsComponent implements OnInit {
                     clone[0].data = chartData[0].data;
                     clone[1].data = chartData[1].data;
                     this.barChartData = clone;
+
+                    this.pageIsLoading = false;
                 });
         });
     }
